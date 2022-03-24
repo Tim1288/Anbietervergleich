@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Telefonanbieter</title>
+<script>
+"use strict";
+function fTelefonanbieter() {	
+	
+var vGrundgebuerA;
+var vGrundgebuerB;
+var vKostenProMinuteA;
+var vKostenProMinuteB;
+var vMinutenzahl= 0;
+var vKostenA;
+var vKostenB;
+var vAusgabe;
+var vKritischeMinutenanzahl;
+
+vGrundgebuerA = parseFloat(document.getElementById("idGrundgebuerA").value);
+vKostenProMinuteA = parseFloat(document.getElementById("idKostenProMinuteA").value);
+vGrundgebuerB = parseFloat(document.getElementById("idGrundgebuerB").value);
+vKostenProMinuteB = parseFloat(document.getElementById("idKostenProMinuteB").value);
+
+	
+vKritischeMinutenanzahl=(vGrundgebuerA-vGrundgebuerB)(vKostenProMinuteA-vKostenProMinuteB);
+vAusgabe = vAusgabe + "<table border=1>";
+vAusgabe = vAusgabe + "<tr><th>Telfoneinheit</th><th>GesamtkostenA</th><th>GesamtkostenB </td><th>Angebot gut ?</th><tr/>";
+
+		
+while (vMinutenzahl <=200) {
+				
+vKostenA=vMinutenzahl*vKostenProMinuteA + vGrundgebuerA ;
+vKostenB=vMinutenzahl*vKostenProMinuteB + vGrundgebuerB ;			
+									
+if (vKostenA==vKostenB){
+   vAusgabe=vAusgabe+"<tr style=color:green><td>"+vMinutenzahl.toFixed(2)+ "</td><td>" + vKostenA.toFixed(2)"</td><td>" + vKostenB.toFixed(0)"</td><td>"
+                       }
+else {
+     vAusgabe = vAusgabe + "<tr><td>" + vMinutenzahl.toFixed(2) + "</td><td>" + vKostGesamt.toFixed(2) + " € " + "</td><td>" + vE.toFixed(2) + " € " + "</td><td>" + vG.toFixed(2) + " € " + "</td><td>Gewinnzone</td></tr>";
+     }
+	
+</script>
+</head>
+	
+
+<body>
+<h1>Telefonanbietervergleich</h1>
+	    AnbieterA: <input id="idGrundgebuerA" value="10" size="6">
+	    AnbieterB: <input id="idGrundgebuerB" value="5" size="6"> <br><br/><br><br/>
+		Kosten pro MinuteA: <input id="idKostenProMinuteA" value="0.05" size="6">
+		Kosten pro MinuteB: <input id="idKostenProMinuteB" value="0.1" size="6">
+		<button onclick="fTelefonanbieter();">Kostentabelle!</button><br><br>
+        <div id="idAusgabe"></div>
+</body>
+</html> 
